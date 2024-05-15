@@ -1,16 +1,19 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react'
+import { FaGithub, FaReceipt } from 'react-icons/fa6';
 
 interface Props{
     name: string,
     url: string,
     img: string,
     features: string,
-    description: string
+    description: string,
+    github: string
 }
 
 const Preview = (props: Props) => {
-    const {name, url, img, features, description} = props;
+    const {name, url, img, features, description, github} = props;
   return (
     <div className=' bg-neutral-900 flex flex-col gap-3 select-none p-2 shadow-inner border-[1px] border-gray-700 w-fit hover:scale-110 transition-all hover:cursor-pointer rounded-lg max-w-[500px]'>
         <div className='border-gray-800 border-[1px] p-1'>
@@ -36,6 +39,23 @@ const Preview = (props: Props) => {
                             </div>
                           </span>
             </span>
+            <div className=' flex gap-10 justify-center text-4xl p-2'>
+                <div className=' hover:text-lime-400 transition-colors'>
+                
+            
+                    <a href={github} target='_blank'>
+                    <FaGithub />
+                    </a>
+                    
+
+                </div>
+
+                <div className=' hover:text-lime-400 transition-colors'>
+                <a href={url} target='_blank'>
+                    <FaReceipt />
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
   )
